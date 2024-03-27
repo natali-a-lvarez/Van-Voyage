@@ -1,0 +1,78 @@
+.van-detail-container {
+  padding: 0 3rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.van-detail_back-link {
+  align-self: start;
+  color: inherit;
+}
+
+.van-detail-img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.van-info {
+  width: 70%;
+}
+
+.van-detail-body {
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+.van-pricing-container {
+  width: 30%;
+  height: 100%;
+  padding: 15px 1rem;
+  box-shadow: 0 0 5px #ccc;
+  border-radius: 8px;
+}
+
+.van-pricing-container input {
+  width: 1rem;
+}
+
+.van-pricing-container ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.van-detail-container p {
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.calculator-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calculator-left-col {
+  color: rgb(97, 97, 97);
+}
+
+.calculator-right-col {
+  font-weight: 500;
+}
+
+.line {
+  border-bottom: 1px solid black;
+}
+
+.total {
+  padding-top: 20px;
+  color: var(--accent-color);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.detail-btn {
+  width: 100%;
+}

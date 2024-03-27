@@ -1,0 +1,33 @@
+:root {
+  font-family: "Rubik", sans-serif;
+  background-color: rgb(255, 254, 254);
+  margin: 0;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --accent-color: #ff914d;
+}
+
+body {
+  margin: 0;
+}
+
+.btn {
+  cursor: pointer;
+  align-self: end;
+  background-color: var(--accent-color);
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background-color: #e58346;
+}
