@@ -1,5 +1,6 @@
 import Navigation from "../components/Navigation";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import "./AddVan.css";
 
@@ -28,6 +29,7 @@ export default function AddVan() {
 
     const response = await fetch(`http://127.0.0.1:5000/vans`, {
       method: "POST",
+      mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
       },
@@ -243,9 +245,9 @@ export default function AddVan() {
           />
         </div>
 
-        <button className="btn" type="submit">
+        <Link to=".." className="btn" type="submit">
           List my van!
-        </button>
+        </Link>
       </form>
     </>
   );

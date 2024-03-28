@@ -24,6 +24,7 @@ def get_van(id):
 # POST a van
 @app.route('/vans', methods={'POST'})
 def create_van():
+
     name = request.json.get("name")
     price = request.json.get("price")
     location = request.json.get("location")
