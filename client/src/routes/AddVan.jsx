@@ -245,9 +245,9 @@ export default function AddVan() {
           />
         </div>
 
-        <Link to=".." className="btn" type="submit">
+        <button className="btn" type="submit">
           List my van!
-        </Link>
+        </button>
       </form>
     </>
   );
