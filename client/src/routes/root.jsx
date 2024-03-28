@@ -14,7 +14,7 @@ export default function Root() {
 
   useEffect(() => {
     fetchVans();
-  }, [vans]);
+  }, []);
 
   return (
     <>

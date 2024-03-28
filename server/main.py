@@ -21,7 +21,7 @@ def get_van(id):
 
     return jsonify(van.to_json())
 
-# POST a book
+# POST a van
 @app.route('/vans', methods={'POST'})
 def create_van():
     name = request.json.get("name")
@@ -48,7 +48,7 @@ def create_van():
     return jsonify({"message": "Van created!"}), 201
 
 
-# PUT book
+# PUT van
 @app.route('/vans/<int:id>', methods={"PATCH"})
 def update_van(id):
     van = Van.query.get(id)
