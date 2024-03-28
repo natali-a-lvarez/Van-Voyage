@@ -31,3 +31,18 @@ body {
 .btn:hover {
   background-color: #e58346;
 }
+
+.align-end {
+  align-self: end;
+}
+
+.unavailable-btn {
+  background-color: grey;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+}

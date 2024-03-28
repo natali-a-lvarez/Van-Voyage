@@ -33,9 +33,9 @@ export default function Van({ van }) {
         </div>
         <NavLink
           to={`/van/${van.id}`}
-          className={!van.available ? "btn unavailable-btn" : "btn "}
+          className={!van.available ? "align-end unavailable-btn" : "btn "}
         >
-          Book now!
+          {!van.available ? "Not available" : "Book now!"}
         </NavLink>
       </div>
     </div>

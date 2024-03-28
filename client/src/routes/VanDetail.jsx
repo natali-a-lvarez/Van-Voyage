@@ -26,9 +26,17 @@ export default function VanDetail() {
 
   console.log(van.available);
 
-  function handleRent() {
-    van.available = false;
-    console.log(van.available);
+  async function handleRent() {
+    const response = await fetch(`http://127.0.0.1:5000/vans/${vanId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        available: false,
+      }),
+    });
+    const data = await response.json();
   }
 
   return (
@@ -88,9 +96,16 @@ export default function VanDetail() {
                 </p>
               </li>
             </ul>
-            <button onClick={handleRent} className="btn detail-btn">
-              Rent out at this price
-            </button>
+            {van.available && (
+              <Link to=".." onClick={handleRent} className="btn detail-btn">
+                {van.available ? "Rent now!" : "Not available"}
+              </Link>
+            )}
+            {!van.available && (
+              <Link className=" detail-btn unavailable-btn" disabled>
+                Not available!
+              </Link>
+            )}
           </div>
         </div>
       </div>

@@ -47,6 +47,34 @@ def create_van():
     
     return jsonify({"message": "Van created!"}), 201
 
+
+# PUT book
+@app.route('/vans/<int:id>', methods={"PATCH"})
+def update_van(id):
+    van = Van.query.get(id)
+
+    if not van:
+        return jsonify({"message": "Van not found!"}), 404
+    
+    data = request.json
+    van.name = data.get("name", van.name)
+    van.price = data.get("price", van.price)
+    van.location = data.get("location", van.location)
+    van.miles = data.get("miles", van.miles)
+    van.kitchen = data.get("kitchen", van.kitchen)
+    van.bathroom = data.get("bathroom", van.bathroom)
+    van.sleeps = data.get("sleeps", van.sleeps)
+    van.seats = data.get("seats", van.seats)
+    van.water = data.get("water", van.water)
+    van.length = data.get("length", van.length)
+    van.imgUrl = data.get("imgUrl", van.imgUrl)
+    van.description = data.get("description", van.description)
+    van.available = data.get("available", van.available)
+
+    db.session.commit()
+    return jsonify({"message": "Van Updated!"}), 200
+
+
 # DELETE book
 @app.route('/vans/<int:id>', methods={"DELETE"})
 def delete_van(id):
