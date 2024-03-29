@@ -74,7 +74,25 @@
 }
 
 .detail-btn {
+  background-color: var(--accent-color);
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.2s;
+}
+
+.detail-btn:hover {
+  background-color: #e58346;
+}
+
+.grey-btn {
+  background-color: grey;
+}
+
+.grey-btn:hover {
+  background-color: rgb(107, 107, 107);
 }

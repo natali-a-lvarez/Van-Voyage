@@ -15,7 +15,7 @@ body {
   margin: 0;
 }
 
-.btn {
+.card-btn {
   cursor: pointer;
   align-self: end;
   background-color: var(--accent-color);
@@ -28,7 +28,7 @@ body {
   transition: 0.2s;
 }
 
-.btn:hover {
+.card-btn:hover {
   background-color: #e58346;
 }
 
@@ -45,4 +45,15 @@ body {
   color: white;
   text-decoration: none;
   transition: 0.2s;
+}
+
+.form-btn {
+  border: none;
+  background-color: var(--accent-color);
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+  font-size: 18px;
 }

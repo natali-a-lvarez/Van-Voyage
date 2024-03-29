@@ -1,6 +1,6 @@
 import Navigation from "../components/Navigation";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./AddVan.css";
 
@@ -18,6 +18,7 @@ export default function AddVan() {
   const [imgUrl, setImgUrl] = useState("");
   const [description, setDescription] = useState("");
   const [available, setAvailable] = useState(true);
+  const navigate = useNavigate();
 
   function toBool(str) {
     if (str == "true") {
@@ -52,7 +53,6 @@ export default function AddVan() {
     body: JSON.stringify(reqBody),
   };
 
-  console.log(reqBody);
   async function handleSubmit(e) {
     fetch("http://127.0.0.1:5000/vans", options).then((response) => {
       console.log(request);
@@ -63,6 +63,10 @@ export default function AddVan() {
       }
     });
 
+    // returns to home and refreshes
+    navigate("..");
+
+    // sets all back to initial values
     setName("");
     setPrice("");
     setLocation("");
@@ -91,7 +95,7 @@ export default function AddVan() {
             onChange={(e) => {
               setName(e.target.value);
             }}
-            // required
+            required
           />
         </div>
 
@@ -104,7 +108,7 @@ export default function AddVan() {
             onChange={(e) => {
               setImgUrl(e.target.value);
             }}
-            // required
+            required
           />
         </div>
 
@@ -125,7 +129,7 @@ export default function AddVan() {
               onChange={(e) => {
                 setPrice(e.target.value);
               }}
-              // required
+              required
             />
           </div>
 
@@ -136,7 +140,7 @@ export default function AddVan() {
               name="miles"
               value={miles}
               onChange={(e) => setMiles(e.target.value)}
-              // required
+              required
             />
           </div>
 
@@ -145,7 +149,7 @@ export default function AddVan() {
             <select
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              // required
+              required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -166,7 +170,7 @@ export default function AddVan() {
               name="seats"
               value={seats}
               onChange={(e) => setSeats(e.target.value)}
-              // required
+              required
             />
           </div>
 
@@ -177,7 +181,7 @@ export default function AddVan() {
               name="sleeps"
               value={sleeps}
               onChange={(e) => setSleeps(e.target.value)}
-              // required
+              required
             />
           </div>
 
@@ -186,7 +190,7 @@ export default function AddVan() {
             <select
               value={kitchen}
               onChange={(e) => setKitchen(e.target.value)}
-              // required
+              required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -202,7 +206,7 @@ export default function AddVan() {
             <select
               value={bathroom}
               onChange={(e) => setBathroom(e.target.value)}
-              // required
+              required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -217,7 +221,7 @@ export default function AddVan() {
             <select
               value={water}
               onChange={(e) => setWater(e.target.value)}
-              // required
+              required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -232,7 +236,7 @@ export default function AddVan() {
             <select
               value={length}
               onChange={(e) => setLength(e.target.value)}
-              // required
+              required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -253,11 +257,11 @@ export default function AddVan() {
             name="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            // required
+            required
           />
         </div>
 
-        <button className="btn" type="submit">
+        <button className="form-btn" type="submit">
           List my van!
         </button>
       </form>

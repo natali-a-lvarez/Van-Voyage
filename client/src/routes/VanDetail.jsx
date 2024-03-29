@@ -31,7 +31,7 @@ export default function VanDetail() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        available: false,
+        available: !van.available,
       }),
     });
     const data = await response.json();
@@ -94,16 +94,13 @@ export default function VanDetail() {
                 </p>
               </li>
             </ul>
-            {van.available && (
-              <Link to=".." onClick={handleRent} className="btn detail-btn">
-                {van.available ? "Rent now!" : "Not available"}
-              </Link>
-            )}
-            {!van.available && (
-              <Link className=" detail-btn unavailable-btn" disabled>
-                Not available!
-              </Link>
-            )}
+            <Link
+              to=".."
+              onClick={handleRent}
+              className={van.available ? "detail-btn" : "detail-btn grey-btn"}
+            >
+              {van.available ? "Rent now!" : "Return van!"}
+            </Link>
           </div>
         </div>
       </div>

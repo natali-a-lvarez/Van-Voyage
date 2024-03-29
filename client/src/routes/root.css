@@ -1,3 +1,7 @@
 .van-list {
   padding-bottom: 1rem;
 }
+
+.error-message {
+  text-align: center;
+}
