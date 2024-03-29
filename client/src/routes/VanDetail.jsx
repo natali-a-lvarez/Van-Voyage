@@ -64,7 +64,7 @@ export default function VanDetail() {
             <ul>
               <li className="calculator-row">
                 <p className="calculator-left-col">
-                  ${van.price} X {"  "}
+                  ${(van.price * 1).toFixed(2)} X {"  "}
                   <input onChange={(e) => setNights(e.target.value)} /> nights
                 </p>
                 <p className="calculator-right-col">
