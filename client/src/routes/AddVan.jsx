@@ -19,48 +19,62 @@ export default function AddVan() {
   const [description, setDescription] = useState("");
   const [available, setAvailable] = useState(true);
 
+  function toBool(str) {
+    if (str == "true") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   const reqBody = {
     name: name,
-    price: price,
+    price: Number(price),
     location: location,
-    miles: miles,
-    kitchen: kitchen,
-    bathroom: bathroom,
-    sleeps: sleeps,
-    seats: seats,
-    water: water,
-    length: length,
+    miles: Number(miles),
+    kitchen: toBool(kitchen),
+    bathroom: toBool(bathroom),
+    sleeps: Number(sleeps),
+    seats: Number(seats),
+    water: toBool(water),
+    length: Number(length),
     imgUrl: imgUrl,
     description: description,
     available: available,
   };
 
-  async function handleSubmit(e) {
-    try {
-      const response = await fetch("http://127.0.0.1:5000/vans", {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(reqBody),
-      });
+  const options = {
+    method: "POST",
+    headers: {
+      Accept: "aaplication/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(reqBody),
+  };
 
-      setName("");
-      setPrice("");
-      setLocation("");
-      setMiles("");
-      setKitchen("");
-      setBathroom("");
-      setSeats("");
-      setSleeps("");
-      setWater("");
-      setLength("");
-      setImgUrl("");
-      setDescription("");
-    } catch (e) {
-      console.log(e);
-    }
+  console.log(reqBody);
+  async function handleSubmit(e) {
+    fetch("http://127.0.0.1:5000/vans", options).then((response) => {
+      console.log(request);
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Something went wrong ...");
+      }
+    });
+
+    setName("");
+    setPrice("");
+    setLocation("");
+    setMiles("");
+    setKitchen("");
+    setBathroom("");
+    setSeats("");
+    setSleeps("");
+    setWater("");
+    setLength("");
+    setImgUrl("");
+    setDescription("");
   }
 
   return (
