@@ -17,52 +17,50 @@ export default function AddVan() {
   const [length, setLength] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [description, setDescription] = useState("");
+  const [available, setAvailable] = useState(true);
 
-  async function fetchVans() {
-    fetch("http://127.0.0.1:5000/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
-  }
+  const reqBody = {
+    name: name,
+    price: price,
+    location: location,
+    miles: miles,
+    kitchen: kitchen,
+    bathroom: bathroom,
+    sleeps: sleeps,
+    seats: seats,
+    water: water,
+    length: length,
+    imgUrl: imgUrl,
+    description: description,
+    available: available,
+  };
 
   async function handleSubmit(e) {
-    e.preventDefault();
+    try {
+      const response = await fetch("http://127.0.0.1:5000/vans", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reqBody),
+      });
 
-    const response = await fetch(`http://127.0.0.1:5000/vans`, {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        price: price,
-        location: location,
-        miles: miles,
-        kitchen: kitchen,
-        bathroom: bathroom,
-        sleeps: sleeps,
-        seats: seats,
-        water: water,
-        length: length,
-        imgUrl: imgUrl,
-        description: description,
-        available: true,
-      }),
-    });
-
-    fetchVans();
-    setName("");
-    setPrice("");
-    setLocation("");
-    setMiles("");
-    setKitchen("");
-    setBathroom("");
-    setSeats("");
-    setSleeps("");
-    setWater("");
-    setLength("");
-    setImgUrl("");
-    setDescription("");
+      setName("");
+      setPrice("");
+      setLocation("");
+      setMiles("");
+      setKitchen("");
+      setBathroom("");
+      setSeats("");
+      setSleeps("");
+      setWater("");
+      setLength("");
+      setImgUrl("");
+      setDescription("");
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   return (
@@ -79,7 +77,7 @@ export default function AddVan() {
             onChange={(e) => {
               setName(e.target.value);
             }}
-            required
+            // required
           />
         </div>
 
@@ -92,7 +90,7 @@ export default function AddVan() {
             onChange={(e) => {
               setImgUrl(e.target.value);
             }}
-            required
+            // required
           />
         </div>
 
@@ -113,7 +111,7 @@ export default function AddVan() {
               onChange={(e) => {
                 setPrice(e.target.value);
               }}
-              required
+              // required
             />
           </div>
 
@@ -124,7 +122,7 @@ export default function AddVan() {
               name="miles"
               value={miles}
               onChange={(e) => setMiles(e.target.value)}
-              required
+              // required
             />
           </div>
 
@@ -133,7 +131,7 @@ export default function AddVan() {
             <select
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              required
+              // required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -154,7 +152,7 @@ export default function AddVan() {
               name="seats"
               value={seats}
               onChange={(e) => setSeats(e.target.value)}
-              required
+              // required
             />
           </div>
 
@@ -165,7 +163,7 @@ export default function AddVan() {
               name="sleeps"
               value={sleeps}
               onChange={(e) => setSleeps(e.target.value)}
-              required
+              // required
             />
           </div>
 
@@ -174,7 +172,7 @@ export default function AddVan() {
             <select
               value={kitchen}
               onChange={(e) => setKitchen(e.target.value)}
-              required
+              // required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -190,7 +188,7 @@ export default function AddVan() {
             <select
               value={bathroom}
               onChange={(e) => setBathroom(e.target.value)}
-              required
+              // required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -205,7 +203,7 @@ export default function AddVan() {
             <select
               value={water}
               onChange={(e) => setWater(e.target.value)}
-              required
+              // required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -220,7 +218,7 @@ export default function AddVan() {
             <select
               value={length}
               onChange={(e) => setLength(e.target.value)}
-              required
+              // required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -241,7 +239,7 @@ export default function AddVan() {
             name="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            required
+            // required
           />
         </div>
 

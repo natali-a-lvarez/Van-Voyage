@@ -16,12 +16,6 @@ export default function VanDetail() {
       .then((data) => setVan(data));
   }, []);
 
-  async function fetchVans() {
-    fetch("http://127.0.0.1:5000/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
-  }
-
   function calculateTotal(nightsTotal, insurancePrice, taxes) {
     return (
       Number(nightsTotal) +
@@ -41,7 +35,6 @@ export default function VanDetail() {
       }),
     });
     const data = await response.json();
-    fetchVans();
   }
 
   return (
