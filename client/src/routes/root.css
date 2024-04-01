@@ -1,7 +1,28 @@
 .van-list {
   padding-bottom: 1rem;
+  margin: 0 8rem 0 8rem;
 }
 
 .error-message {
   text-align: center;
+}
+
+.filter-container {
+  display: flex;
+  gap: 8px;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 15px;
+  color: grey;
+}
+
+.filter-container select {
+  border-radius: 5px;
+  padding: 0.2rem;
+}
+
+@media (max-width: 1200px) {
+  .van-list {
+    margin: 0 2rem 0 2rem;
+  }
 }
