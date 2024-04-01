@@ -9,6 +9,7 @@ header {
 
   padding: 8px 2.5rem;
   margin-bottom: 30px;
+  width: auto;
 }
 
 .logo {
@@ -31,4 +32,16 @@ header {
 
 .active {
   border-bottom: 1px solid black;
+}
+
+@media (max-width: 1200px) {
+  header {
+    flex-direction: column;
+    padding-bottom: 15px;
+  }
+
+  .logo {
+    height: 90px;
+    width: 90px;
+  }
 }

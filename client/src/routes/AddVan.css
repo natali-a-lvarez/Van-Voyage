@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   padding: 0 4rem;
+  margin-bottom: 1.5rem;
   gap: 10px;
 }
 
@@ -55,4 +56,26 @@
 .form .btn {
   width: 100%;
   margin-top: 10px;
+}
+
+@media (max-width: 1200px) {
+  .form {
+    padding: 0 2rem;
+  }
+
+  .inside-form-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .form {
+    padding: 0 1rem;
+  }
+
+  .inside-form-container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
 }

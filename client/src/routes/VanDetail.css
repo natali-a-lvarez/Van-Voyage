@@ -17,6 +17,7 @@
   object-fit: cover;
   border-radius: 8px;
 }
+
 .van-info {
   width: 70%;
 }
@@ -24,7 +25,6 @@
 .van-detail-body {
   display: flex;
   justify-content: space-between;
-  gap: 5rem;
 }
 
 .van-pricing-container {
@@ -95,4 +95,27 @@
 
 .grey-btn:hover {
   background-color: rgb(107, 107, 107);
+}
+
+@media (max-width: 800px) {
+  .van-detail-container {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .van-detail-body {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .van-info {
+    width: 100%;
+  }
+
+  .van-pricing-container {
+    width: auto;
+  }
+
+  .van-detail-img {
+    height: 350px;
+  }
 }

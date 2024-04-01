@@ -6,7 +6,7 @@
   height: 11rem;
   border-radius: 8px;
   gap: 20px;
-  margin: 0 10rem 1.5rem 10rem;
+  margin-bottom: 1.5rem;
 }
 
 .card-img {
@@ -66,4 +66,28 @@
 .card-icon_text {
   color: #3e3e3e;
   margin: 0;
+}
+
+@media (max-width: 800px) {
+  .van-card {
+    flex-direction: column;
+    height: auto;
+    gap: 8px;
+  }
+
+  .card-img {
+    width: 100%;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .card-body {
+    width: auto;
+    padding: 15px 25px 15px 20px;
+  }
+
+  .card-title {
+    font-size: 22px;
+  }
 }

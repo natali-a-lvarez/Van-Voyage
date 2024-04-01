@@ -55,7 +55,6 @@ export default function AddVan() {
 
   async function handleSubmit(e) {
     fetch("http://127.0.0.1:5000/vans", options).then((response) => {
-      console.log(request);
       if (response.ok) {
         return response.json();
       } else {
