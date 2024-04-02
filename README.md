@@ -5,7 +5,7 @@ This is a CRUD (Create, Read, Update, Delete) web application that allows users 
 
 
 ### Live Application
-You can access the live application by following this link: [My Cookbook](https://my-cookbook-0f9y.onrender.com/)
+You can access the live application by following this link: [Van Voyage](https://van-voyage.onrender.com/)
 
 ### Built with
 [![My Skills](https://skillicons.dev/icons?i=flask,python,react,js,css)](https://skillicons.dev)
