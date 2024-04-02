@@ -54,13 +54,15 @@ export default function AddVan() {
   };
 
   async function handleSubmit(e) {
-    fetch("http://127.0.0.1:8000/vans", options).then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("Something went wrong ...");
+    fetch("https://van-voyage-server-pwa5.onrender.com/vans", options).then(
+      (response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Something went wrong ...");
+        }
       }
-    });
+    );
 
     // returns to home and refreshes
     navigate("..");

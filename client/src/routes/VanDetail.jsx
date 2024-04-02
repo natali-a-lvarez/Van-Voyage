@@ -11,7 +11,7 @@ export default function VanDetail() {
   const { vanId } = useParams();
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/vans/${vanId}`)
+    fetch(`https://van-voyage-server-pwa5.onrender.com/vans/${vanId}`)
       .then((res) => res.json())
       .then((data) => setVan(data));
   }, []);
@@ -25,15 +25,18 @@ export default function VanDetail() {
   }
 
   async function handleRent() {
-    const response = await fetch(`http://127.0.0.1:8000/vans/${vanId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        available: !van.available,
-      }),
-    });
+    const response = await fetch(
+      `https://van-voyage-server-pwa5.onrender.com/vans/${vanId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          available: !van.available,
+        }),
+      }
+    );
     const data = await response.json();
   }
 

@@ -9,7 +9,9 @@ export default function Root() {
   const [filteredVans, setFilteredVans] = useState([]);
 
   async function fetchVans() {
-    fetch("http://127.0.0.1:8000/vans")
+    fetch(
+      "http://127.0.0.1:8000/vanshttps://van-voyage-server-pwa5.onrender.com/vans"
+    )
       .then((res) => res.json())
       .then((data) => {
         setVans(data.vans);
