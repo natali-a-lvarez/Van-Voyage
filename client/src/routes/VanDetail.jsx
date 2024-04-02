@@ -41,7 +41,7 @@ export default function VanDetail() {
     const data = await response.json();
 
     // refresh page
-    navigate("..");
+    // navigate("..");
     navigate(0);
   }
 
