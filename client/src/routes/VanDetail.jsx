@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
@@ -9,6 +9,7 @@ export default function VanDetail() {
   const [nights, setNights] = useState(1);
   const [insurance, setInsurance] = useState(100.0);
   const { vanId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://van-voyage-server-pwa5.onrender.com/vans/${vanId}`)
@@ -38,6 +39,10 @@ export default function VanDetail() {
       }
     );
     const data = await response.json();
+
+    // refresh page
+    navigate("..");
+    navigate(0);
   }
 
   return (
