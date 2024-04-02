@@ -9,7 +9,7 @@ export default function Root() {
   const [filteredVans, setFilteredVans] = useState([]);
 
   async function fetchVans() {
-    fetch("http://127.0.0.1:5000/vans")
+    fetch("http://127.0.0.1:8000/vans")
       .then((res) => res.json())
       .then((data) => {
         setVans(data.vans);
@@ -18,7 +18,7 @@ export default function Root() {
 
   useEffect(() => {
     fetchVans();
-  }, [vans]);
+  }, []);
 
   function filterVans(e) {
     setFilter(e.target.value);
@@ -29,7 +29,6 @@ export default function Root() {
   return (
     <>
       <Navigation />
-      {vans.length === 0 && <p className="error-message">No vans to rent.</p>}
       <div className="van-list">
         <form className="filter-container">
           <select onChange={(e) => filterVans(e)}>
@@ -45,6 +44,7 @@ export default function Root() {
           </select>
         </form>
 
+        {vans.length === 0 && <p className="error-message">No vans to rent.</p>}
         {filter === "" &&
           vans.map((van) => (
             <Van key={van.id} van={van} fetchVans={fetchVans} />

@@ -54,7 +54,7 @@ export default function AddVan() {
   };
 
   async function handleSubmit(e) {
-    fetch("http://127.0.0.1:5000/vans", options).then((response) => {
+    fetch("http://127.0.0.1:8000/vans", options).then((response) => {
       if (response.ok) {
         return response.json();
       } else {
@@ -64,6 +64,7 @@ export default function AddVan() {
 
     // returns to home and refreshes
     navigate("..");
+    navigate(0);
 
     // sets all back to initial values
     setName("");

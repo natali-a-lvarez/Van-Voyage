@@ -11,7 +11,7 @@ export default function VanDetail() {
   const { vanId } = useParams();
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:5000/vans/${vanId}`)
+    fetch(`http://127.0.0.1:8000/vans/${vanId}`)
       .then((res) => res.json())
       .then((data) => setVan(data));
   }, []);
@@ -25,7 +25,7 @@ export default function VanDetail() {
   }
 
   async function handleRent() {
-    const response = await fetch(`http://127.0.0.1:5000/vans/${vanId}`, {
+    const response = await fetch(`http://127.0.0.1:8000/vans/${vanId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
