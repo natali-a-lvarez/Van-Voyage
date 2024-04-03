@@ -12,7 +12,7 @@ export default function VanDetail() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://van-voyage-server-pwa5.onrender.com/vans/${vanId}`)
+    fetch(`https://van-voyage-server-pwa5.onrender.com/vans/vans/${vanId}`)
       .then((res) => res.json())
       .then((data) => setVan(data));
   }, []);

@@ -43,11 +43,11 @@ export default function AddVan() {
     available: true,
   };
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     fetch("https://van-voyage-server-pwa5.onrender.com/vans", {
       method: "POST",
       headers: {
-        Accept: "aaplication/json",
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(reqBody),
@@ -82,7 +82,7 @@ export default function AddVan() {
     <>
       <Navigation />
       <h2 className="form-title">List your own van</h2>
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit} method="post">
         <div className="form-field">
           <label>Name of van *</label>
           <input
@@ -92,7 +92,7 @@ export default function AddVan() {
             onChange={(e) => {
               setName(e.target.value);
             }}
-            required
+            // required
           />
         </div>
 
@@ -105,7 +105,7 @@ export default function AddVan() {
             onChange={(e) => {
               setImgUrl(e.target.value);
             }}
-            required
+            // required
           />
         </div>
 
@@ -126,7 +126,7 @@ export default function AddVan() {
               onChange={(e) => {
                 setPrice(e.target.value);
               }}
-              required
+              // required
             />
           </div>
 
@@ -137,7 +137,7 @@ export default function AddVan() {
               name="miles"
               value={miles}
               onChange={(e) => setMiles(e.target.value)}
-              required
+              // required
             />
           </div>
 
@@ -146,7 +146,7 @@ export default function AddVan() {
             <select
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              required
+              // required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -167,7 +167,7 @@ export default function AddVan() {
               name="seats"
               value={seats}
               onChange={(e) => setSeats(e.target.value)}
-              required
+              // required
             />
           </div>
 
@@ -178,7 +178,7 @@ export default function AddVan() {
               name="sleeps"
               value={sleeps}
               onChange={(e) => setSleeps(e.target.value)}
-              required
+              // required
             />
           </div>
 
@@ -187,7 +187,7 @@ export default function AddVan() {
             <select
               value={kitchen}
               onChange={(e) => setKitchen(e.target.value)}
-              required
+              // required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -203,7 +203,7 @@ export default function AddVan() {
             <select
               value={bathroom}
               onChange={(e) => setBathroom(e.target.value)}
-              required
+              // required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -218,7 +218,7 @@ export default function AddVan() {
             <select
               value={water}
               onChange={(e) => setWater(e.target.value)}
-              required
+              // required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -233,7 +233,7 @@ export default function AddVan() {
             <select
               value={length}
               onChange={(e) => setLength(e.target.value)}
-              required
+              // required
             >
               <option value="" disabled selected>
                 --Make a selection--
@@ -254,7 +254,7 @@ export default function AddVan() {
             name="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            required
+            // required
           />
         </div>
 
