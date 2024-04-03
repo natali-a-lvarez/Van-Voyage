@@ -17,7 +17,6 @@ export default function AddVan() {
   const [length, setLength] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [description, setDescription] = useState("");
-  const [available, setAvailable] = useState(true);
   const navigate = useNavigate();
 
   function toBool(str) {
@@ -41,28 +40,24 @@ export default function AddVan() {
     length: Number(length),
     imgUrl: imgUrl,
     description: description,
-    available: available,
-  };
-
-  const options = {
-    method: "POST",
-    headers: {
-      Accept: "aaplication/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(reqBody),
+    available: true,
   };
 
   async function handleSubmit(e) {
-    fetch("https://van-voyage-server-pwa5.onrender.com/vans", options).then(
-      (response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error("Something went wrong ...");
-        }
+    fetch("https://van-voyage-server-pwa5.onrender.com/vans", {
+      method: "POST",
+      headers: {
+        Accept: "aaplication/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reqBody),
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Something went wrong ...");
       }
-    );
+    });
 
     // returns to home and refreshes
     navigate("..");
