@@ -20,7 +20,7 @@ export default function Root() {
 
   useEffect(() => {
     fetchVans();
-  }, []);
+  }, [vans]);
 
   function filterVans(e) {
     setFilter(e.target.value);
@@ -43,9 +43,7 @@ export default function Root() {
           </select>
         </form>
         {spinner && <p className="error-message">loading...</p>}
-        {/* {vans.length === 0 && !spinner && (
-          <p className="error-message">No vans to rent.</p>
-        )} */}
+
         {filter === "" &&
           vans.map((van) => (
             <Van key={van.id} van={van} fetchVans={fetchVans} />
@@ -55,9 +53,9 @@ export default function Root() {
           filteredVans.map((van) => (
             <Van key={van.id} van={van} fetchVans={fetchVans} />
           ))}
-        {/* {filter != "" && filteredVans.length === 0 && (
+        {filter != "" && filteredVans.length === 0 && (
           <p className="error-message">No vans for this location.</p>
-        )} */}
+        )}
       </div>
     </>
   );
