@@ -7,11 +7,13 @@ export default function Root() {
   const [vans, setVans] = useState([]);
   const [filter, setFilter] = useState("");
   const [filteredVans, setFilteredVans] = useState([]);
+  const [spinner, setSpinner] = useState(true);
 
   async function fetchVans() {
     fetch("https://van-voyage-server-pwa5.onrender.com/vans")
       .then((res) => res.json())
       .then((data) => {
+        setSpinner(false);
         setVans(data.vans);
       });
   }
@@ -43,8 +45,10 @@ export default function Root() {
             <option value="Denver, Colorado">Denver, Colorado</option>
           </select>
         </form>
-
-        {vans.length === 0 && <p className="error-message">No vans to rent.</p>}
+        {spinner && <p className="error-message">loading...</p>}
+        {/* {vans.length === 0 && !spinner && (
+          <p className="error-message">No vans to rent.</p>
+        )} */}
         {filter === "" &&
           vans.map((van) => (
             <Van key={van.id} van={van} fetchVans={fetchVans} />
@@ -54,9 +58,9 @@ export default function Root() {
           filteredVans.map((van) => (
             <Van key={van.id} van={van} fetchVans={fetchVans} />
           ))}
-        {filter != "" && filteredVans.length === 0 && (
+        {/* {filter != "" && filteredVans.length === 0 && (
           <p className="error-message">No vans for this location.</p>
-        )}
+        )} */}
       </div>
     </>
   );
