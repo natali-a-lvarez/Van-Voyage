@@ -59,7 +59,7 @@ export default function AddVan() {
 
     // returns to home and refreshes
     navigate("..");
-    // navigate(0);
+   
 
     // sets all back to initial values
     setName("");
