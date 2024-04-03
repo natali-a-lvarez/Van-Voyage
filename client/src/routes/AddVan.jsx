@@ -27,21 +27,7 @@ export default function AddVan() {
     }
   }
 
-  const reqBody = {
-    name: name,
-    price: Number(price),
-    location: location,
-    miles: Number(miles),
-    kitchen: toBool(kitchen),
-    bathroom: toBool(bathroom),
-    sleeps: Number(sleeps),
-    seats: Number(seats),
-    water: toBool(water),
-    length: Number(length),
-    imgUrl: imgUrl,
-    description: description,
-    available: true,
-  };
+  // const reqBody = ;
 
   function handleSubmit(e) {
     fetch("https://van-voyage-server-pwa5.onrender.com/vans", {
@@ -50,7 +36,21 @@ export default function AddVan() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(reqBody),
+      body: JSON.stringify({
+        name: name,
+        price: Number(price),
+        location: location,
+        miles: Number(miles),
+        kitchen: toBool(kitchen),
+        bathroom: toBool(bathroom),
+        sleeps: Number(sleeps),
+        seats: Number(seats),
+        water: toBool(water),
+        length: Number(length),
+        imgUrl: imgUrl,
+        description: description,
+        available: true,
+      }),
     }).then((response) => {
       if (response.ok) {
         return response.json();
