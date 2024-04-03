@@ -27,8 +27,6 @@ export default function AddVan() {
     }
   }
 
-  // const reqBody = ;
-
   function handleSubmit(e) {
     fetch("https://van-voyage-server-pwa5.onrender.com/vans", {
       method: "POST",
@@ -61,7 +59,7 @@ export default function AddVan() {
 
     // returns to home and refreshes
     navigate("..");
-    navigate(0);
+    // navigate(0);
 
     // sets all back to initial values
     setName("");
