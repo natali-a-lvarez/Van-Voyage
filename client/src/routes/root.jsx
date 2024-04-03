@@ -34,9 +34,6 @@ export default function Root() {
       <div className="van-list">
         <form className="filter-container">
           <select onChange={(e) => filterVans(e)}>
-            <option value="" disabled selected>
-              Filter by
-            </option>
             <option value="">All</option>
             <option value="Seattle, Washington">Seattle, Washington</option>
             <option value="San Francisco, California">
